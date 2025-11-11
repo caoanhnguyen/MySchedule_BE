@@ -1,0 +1,36 @@
+server:
+  port: 8088
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: MySchedulerApp
+  datasource:
+    url: jdbc:mysql://localhost:3306/MySchedule?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: Hikari-MySQL
+      maximum-pool-size: 10
+      minimum-idle: 4
+      connection-timeout: 30000
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql:
+            BasicBinder: trace
+      springframework:
+        transaction: TRACE
+        orm:
+          jpa:
+            JpaTransactionManager: TRACE
