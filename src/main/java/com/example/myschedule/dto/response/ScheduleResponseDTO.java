@@ -24,6 +24,7 @@ public class ScheduleResponseDTO {
     String note;
 
     @JsonProperty("schedule_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     LocalDate scheduleDate;
 
     @JsonProperty("start_time")
